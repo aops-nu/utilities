@@ -1,0 +1,18 @@
+{
+  "name": "utilities",
+  "version": "0.0.1",
+  "description": "my utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aops.nu@gmail.com",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-json": "^1.4.0"
+  }
+}
