@@ -1,4 +1,3 @@
-
 function normalizeInteger (val) {
   let value = parseInt(val, 10);
 

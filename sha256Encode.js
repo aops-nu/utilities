@@ -1,5 +1,3 @@
-'use stict';
-
 const crypto = require('crypto');
 
 function sha256Encode (str) {

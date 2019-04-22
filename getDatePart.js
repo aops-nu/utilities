@@ -1,8 +1,7 @@
-
 let normalizeInteger = require('./normalizeInteger');
 
 //default zone = utc (0)
-function getDateParts (zone) {
+function getDateParts ({zone}) {
   if (zone === null || zone === undefined) { zone = 0; }
 
   zone = normalizeInteger(zone);
@@ -10,7 +9,7 @@ function getDateParts (zone) {
 
   let day = (new Date());
 
-  day.setUTCHours(day.getUTCHours() + zone);//set hour to gmt +7
+  day.setUTCHours(day.getUTCHours() + zone);//set hour to gmt +zone
 
   return {
     year: day.getUTCFullYear(),
