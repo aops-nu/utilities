@@ -1,7 +1,8 @@
 function normalizeInteger (val) {
-  let value = parseInt(val, 10);
+  const value = parseInt(val);
 
   if (isNaN(value)) { return null; }
+
   return value;
 }
 
