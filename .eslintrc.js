@@ -4,7 +4,8 @@ const rules = {
     "browser": true,
     "es6": true,
     "node": true,
-    "commonjs": true
+    "commonjs": true,
+    "mocha": true
   },
   "extends": [
     "eslint:recommended",
@@ -21,7 +22,8 @@ const rules = {
   "plugins": [
     "babel",
     "react",
-    "json"
+    "json",
+    "mocha"
   ],
   "settings": {
     "react": {
@@ -33,37 +35,40 @@ const rules = {
     "propWrapperFunctions": ["forbidExtraProps"]
   },
   "rules": {
-    "no-async-promise-executor": "error",
     "no-await-in-loop": "error",
+    "no-console": "error",
     "no-extra-parens": [
       "error",
       "all",
       {
         "conditionalAssign": false,
-        "nestedBinaryExpressions": false
+        "nestedBinaryExpressions": false,
+        "ignoreJSX": "all"
       }
     ],
-    "no-prototype-builtins": "error",
-    "require-atomic-updates": "error",
+    "no-template-curly-in-string": "warn",
     "accessor-pairs": "error",
     "array-callback-return": "error",
     "block-scoped-var": "error",
-    "complexity": ["error", 10],
+    "complexity": ["error"],
     "consistent-return": "error",
     "curly": "error",
     "default-case": "error",
-    "dot-notation": "error",
     "dot-location": ["error", "property"],
+    "dot-notation": "error",
     "eqeqeq": ["error", "always"],
     "guard-for-in": "error",
     "max-classes-per-file": ["warn", 1],
     "no-alert": "warn",
     "no-caller": "error",
+    // "no-div-regex": "error",
     "no-else-return": "error",
     "no-empty-function": "error",
     "no-eq-null": "error",
+    "no-eval": "error",
     "no-extend-native": "error",
     "no-extra-bind": "error",
+    "no-extra-label": "error",
     "no-floating-decimal": "error",
     "no-implicit-coercion": "error",
     "no-implicit-globals": "error",
@@ -84,6 +89,7 @@ const rules = {
     "no-proto": "error",
     "no-return-assign": "error",
     "no-return-await": "error",
+    "no-script-url": "error",
     "no-self-compare": "error",
     "no-sequences": "error",
     "no-throw-literal": "error",
@@ -93,8 +99,11 @@ const rules = {
     "no-useless-catch": "warn",
     "no-useless-concat": "error",
     "no-useless-return": "error",
+    "no-void": "error",
+    "no-warning-comments": "error",
     "no-with": "error",
     "prefer-promise-reject-errors": "error",
+    "radix": ["error", "as-needed"],
     "require-await": "error",
     "wrap-iife": ["error", "any"],
     "yoda": "error",
@@ -103,10 +112,9 @@ const rules = {
 
     "no-label-var": "error",
     "no-shadow": "error",
-    "no-shadow-restricted-names": "error",
     "no-undef-init": "error",
     "no-undefined": "error",
-    "no-use-before-define": "error",
+    "no-use-before-define": ["error", { "functions": false }],
 
     "callback-return": "error",
     "global-require": "error",
@@ -120,7 +128,7 @@ const rules = {
     "no-sync": ["error", { "allowAtRootLevel": true }],
 
     // 'array-bracket-newline': ['error', 'consistent'],
-    "array-bracket-newline": ["error", { "multiline": true }],
+    "array-bracket-newline": ["error", "consistent"],
     "array-bracket-spacing": ["error", "never"],
     "array-element-newline": ["error", "consistent"],
     // 'array-element-newline': ['error', { "multiline": true }],
@@ -312,10 +320,25 @@ const rules = {
     "prefer-spread": "error",
     "prefer-template": "error",
     "rest-spread-spacing": ["error", "never"],
-    "sort-imports": "error",
+    "sort-imports": ["error", { "ignoreDeclarationSort": true }],
     "symbol-description": "error",
     "template-curly-spacing": "error",
-    "yield-star-spacing": "error"
+    "yield-star-spacing": "error",
+
+    // mocha rules
+    "mocha/handle-done-callback": "error",
+    "mocha/max-top-level-suites": "error",
+    "mocha/no-exclusive-tests": "error",
+    "mocha/no-global-tests": "error",
+    "mocha/no-identical-title": "error",
+    "mocha/no-nested-tests": "error",
+    "mocha/no-pending-tests": "error",
+    "mocha/no-return-and-callback": "error",
+    "mocha/no-setup-in-describe": "error",
+    "mocha/no-sibling-hooks": "error",
+    "mocha/no-skipped-tests": "error",
+    "mocha/no-top-level-hooks": "error",
+    "mocha/no-async-describe": "error"
   }
 };
 
