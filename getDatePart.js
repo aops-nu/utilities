@@ -1,15 +1,18 @@
-let normalizeInteger = require('./normalizeInteger');
+const normalizeInteger = require('./normalizeInteger');
 
-//default zone = utc (0)
-function getDateParts ({zone}) {
-  if (zone === null || zone === undefined) { zone = 0; }
+// default zone = utc (0)
+function getDateParts ({ zone }) {
+  let timeZone = zone;
 
-  zone = normalizeInteger(zone);
-  if (!zone) { throw new Error('invalid zone value'); }
+  if (typeof timeZone === 'undefined' || timeZone === null) { timeZone = 0; }
 
-  let day = (new Date());
+  timeZone = normalizeInteger(timeZone);
 
-  day.setUTCHours(day.getUTCHours() + zone);//set hour to gmt +zone
+  if (!timeZone) { throw new Error('invalid zone value'); }
+
+  const day = new Date();
+
+  day.setUTCHours(day.getUTCHours() + timeZone);// set hour to gmt +zone
 
   return {
     year: day.getUTCFullYear(),
@@ -17,7 +20,7 @@ function getDateParts ({zone}) {
     date: day.getUTCDate(),
     day: day.getUTCDay(),
     hour: day.getUTCHours(),
-    minute: day.getUTCMinutes(),
+    minute: day.getUTCMinutes()
   };
 }
 
